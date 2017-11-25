@@ -1,0 +1,1 @@
+json.partial 'real_estates/errors', errors: @real_estate.errors
