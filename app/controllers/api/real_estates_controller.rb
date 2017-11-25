@@ -52,7 +52,7 @@ class Api::RealEstatesController < ApplicationController
                               .price_to(params[:price_to])
                               .area_from(params[:area_from])
                               .area_to(params[:area_to])
-                              .real_estate_building_type(params[:building_type].capitalize)
+                              .real_estate_building_type(params[:building_type].try(:capitalize))
                               .page(params[:page])
                               .per(params[:per_page])
                               

@@ -79,4 +79,12 @@ RSpec.describe Api::RealEstatesController, type: :controller do
             expect(response.status).to eq(422)
         end
     end
+
+    describe "get #search" do
+        it "show real estate object data with the search critieria" do
+            real_estate = FactoryGirl.create(:real_estate)
+            get :search, params: {price_from: real_estate.price, area_to: real_estate.square_feet} , format: :json
+            expect(response.status).to eq(200)
+        end
+    end
 end
