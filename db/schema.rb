@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20171125110732) do
   create_table "real_estates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "street"
     t.string   "city"
-    t.integer  "zip"
+    t.string   "zip"
     t.string   "state"
     t.integer  "beds_number"
     t.integer  "square_feet"

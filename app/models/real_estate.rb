@@ -1,6 +1,14 @@
 class RealEstate < ApplicationRecord
     enum building_type: ['Residential', 'Condo', 'Multi-Family']
 
+
+    # validations
+
+    validates :street, :city, :zip, :state, :beds_number , :square_feet , :building_type, :sale_date, :price , :latitude, :longitude, presence: true
+
+    validates :square_feet, :price, numericality: true
+
+    validates :building_type, inclusion: { in: RealEstate.building_types.keys }
     # scopes
 
     # search for real estate price

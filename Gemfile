@@ -27,6 +27,19 @@ gem 'kaminari'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # rspec gem for testing
+  gem 'rspec-rails', '~> 3.6'
+  # Faker gem to hep in testing data
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+  # shoula matchers for make the model test more easy
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rails-controller-testing'
+
+  # factory girl
+  gem 'factory_girl_rails'
+
 end
 
 group :development do

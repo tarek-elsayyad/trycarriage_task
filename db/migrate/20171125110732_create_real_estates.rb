@@ -3,7 +3,7 @@ class CreateRealEstates < ActiveRecord::Migration[5.0]
     create_table :real_estates do |t|
       t.string :street
       t.string :city
-      t.integer :zip
+      t.string :zip
       t.string :state
       t.integer :beds_number
       t.integer :square_feet
