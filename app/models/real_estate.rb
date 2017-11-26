@@ -1,5 +1,5 @@
 class RealEstate < ApplicationRecord
-    enum building_type: ['Residential', 'Condo', 'Multi-Family']
+    enum building_type: ['Residential', 'Condo', 'Multi-Family', "Unkown"]
 
 
     # validations

@@ -24,6 +24,19 @@ gem 'jbuilder', '~> 2.5'
 # Kaminari pagination gem
 gem 'kaminari'
 
+# smarter csv gem to handle large csv files
+
+gem 'smarter_csv'
+
+# delayed job gem
+
+gem 'delayed_job_active_record'
+gem 'daemons'
+
+
+# active record import for solving n+1 insert problem
+gem 'activerecord-import'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

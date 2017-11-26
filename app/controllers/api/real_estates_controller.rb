@@ -59,7 +59,25 @@ class Api::RealEstatesController < ApplicationController
     render action: "/search/success", status: :ok
   end
 
+  def populate_csv
+    populate_csv_in_background(params[:file].path)
+    render json: {message: "your file will be populated in background"},  status: :ok
+  end
+
+  
+
   private
+  
+    def populate_csv_in_background(file_path)
+      @real_estates = SmarterCSV.process(params[:file].path, {:key_mapping => {street: :street,city: :city,zip: :zip,state: :state,beds: :beds_number,baths: :baths_number, sq__ft: :square_feet,type: :building_type,sale_date: :sale_date, price: :price,latitude: :latitude,longitude: :longitude}, :row_sep =>  :auto, :chunk_size => 100}) do |chunk|
+        begin      
+          RealEstate.delay.import(chunk)
+        rescue ActiveRecord::RecordInvalid => e
+          puts e
+        end
+      end
+    end
+
     def set_real_estate
 
       begin      
@@ -72,6 +90,6 @@ class Api::RealEstatesController < ApplicationController
     end
 
     def real_estate_params
-      params.require(:real_estate).permit(:street, :city, :zip, :state, :beds_number, :square_feet, :building_type, :sale_date, :price, :latitude, :longitude)
+      params.require(:real_estate).permit(:street, :city, :zip, :state, :beds_number, :baths_number, :square_feet, :building_type, :sale_date, :price, :latitude, :longitude)
     end
 end
