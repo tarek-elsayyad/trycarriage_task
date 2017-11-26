@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126191142) do
+ActiveRecord::Schema.define(version: 20171126195613) do
 
   create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "priority",                 default: 0, null: false
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20171126191142) do
     t.string   "zip"
     t.string   "state"
     t.integer  "beds_number"
-    t.integer  "baths_number"
     t.integer  "square_feet"
     t.integer  "building_type"
     t.string   "sale_date"
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171126191142) do
     t.float    "longitude",     limit: 24
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.integer  "baths_number"
   end
 
 end
